@@ -5,23 +5,23 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.pavitrasoft.databinding.ActivitySignIn2Binding
+import com.example.pavitrasoft.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class SignIn2 : AppCompatActivity() {
+class SignIn : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySignIn2Binding
+    private lateinit var binding: ActivitySignInBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignIn2Binding.inflate(layoutInflater)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
         firebaseAuth = FirebaseAuth.getInstance()
         binding.textView.setOnClickListener {
-            val intent = Intent(this, SignUp2::class.java)
+            val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
 
@@ -50,7 +50,7 @@ class SignIn2 : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(firebaseAuth.currentUser != null){
-            val intent = Intent(this, SignIn2::class.java)
+            val intent = Intent(this, SignIn::class.java)
             startActivity(intent)
         }
     }
